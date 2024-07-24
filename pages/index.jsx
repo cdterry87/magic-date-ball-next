@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Head from 'next/head'
 import axios from 'axios'
 import 'animate.css'
 
@@ -218,6 +219,15 @@ export default function Home() {
         ' text-white min-h-screen flex flex-col items-center justify-center overflow-y-auto pt-6'
       }
     >
+      <Head>
+        <title>Magic Date Ball</title>
+        <meta
+          property='og:title'
+          content='Ask the Magic Date Ball where to eat out tonight! By Chase Terry'
+          key='title'
+        />
+      </Head>
+
       <div className='flex flex-col gap-8 items-center justify-center pb-12'>
         <div className='flex flex-col gap-2'>
           <h1 className='text-4xl sm:text-6xl text-center font-bold'>
