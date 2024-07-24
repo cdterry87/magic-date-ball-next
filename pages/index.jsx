@@ -212,13 +212,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div
-      id='app'
-      className={
-        defaultFont.className +
-        ' text-white min-h-screen flex flex-col items-center justify-center overflow-y-auto pt-6'
-      }
-    >
+    <div>
       <Head>
         <title>Magic Date Ball</title>
         <meta
@@ -228,68 +222,76 @@ export default function Home() {
         />
       </Head>
 
-      <div className='flex flex-col gap-8 items-center justify-center pb-12'>
-        <div className='flex flex-col gap-2'>
-          <h1 className='text-4xl sm:text-6xl text-center font-bold'>
-            Magic Date Ball
-          </h1>
-          <h2 className='text-lg sm:text-xl text-center font-semibold'>
-            Where do you want to eat? Just ask the Magic Date Ball!
-          </h2>
-        </div>
-        {isError && <ErrorOccurred startOver={startOver} />}
-        {(!isError || isSearching) && !isSearchComplete && (
-          <EightBall
-            isSearching={isSearching}
-            isSearchComplete={isSearchComplete}
-          />
-        )}
-        {!isError && !isSearching && isSearchComplete && !isEmptyResult && (
-          <ResultCard
-            result={result}
-            tryAgain={tryAgain}
-            startOver={startOver}
-            isSearchComplete={isSearchComplete}
-            isTryingAgain={isTryingAgain}
-            isTriedAgain={isTriedAgain}
-          />
-        )}
-        {!isError && !isSearching && isSearchComplete && isEmptyResult && (
-          <EmptyResult startOver={startOver} />
-        )}
-        <div className='flex flex-col gap-1 text-center'>
-          <div className='flex items-center gap-2'>
-            <span>&copy; 2023. Created by Chase Terry.</span>
-            <span>|</span>
-            <a
-              href='https://chaseterry.com'
-              className='font-bold underline'
-              target='_blank'
-              rel='noreferrer'
-              aria-label='Visit my website!'
-              title='Visit my website!'
-            >
-              https://chaseterry.com
-            </a>
+      <div
+        id='app'
+        className={
+          defaultFont.className +
+          ' text-white min-h-screen flex flex-col items-center justify-center overflow-y-auto pt-6'
+        }
+      >
+        <div className='flex flex-col gap-8 items-center justify-center pb-12'>
+          <div className='flex flex-col gap-2'>
+            <h1 className='text-4xl sm:text-6xl text-center font-bold'>
+              Magic Date Ball
+            </h1>
+            <h2 className='text-lg sm:text-xl text-center font-semibold'>
+              Where do you want to eat? Just ask the Magic Date Ball!
+            </h2>
+          </div>
+          {isError && <ErrorOccurred startOver={startOver} />}
+          {(!isError || isSearching) && !isSearchComplete && (
+            <EightBall
+              isSearching={isSearching}
+              isSearchComplete={isSearchComplete}
+            />
+          )}
+          {!isError && !isSearching && isSearchComplete && !isEmptyResult && (
+            <ResultCard
+              result={result}
+              tryAgain={tryAgain}
+              startOver={startOver}
+              isSearchComplete={isSearchComplete}
+              isTryingAgain={isTryingAgain}
+              isTriedAgain={isTriedAgain}
+            />
+          )}
+          {!isError && !isSearching && isSearchComplete && isEmptyResult && (
+            <EmptyResult startOver={startOver} />
+          )}
+          <div className='flex flex-col gap-1 text-center'>
+            <div className='flex items-center gap-2'>
+              <span>&copy; 2023. Created by Chase Terry.</span>
+              <span>|</span>
+              <a
+                href='https://chaseterry.com'
+                className='font-bold underline'
+                target='_blank'
+                rel='noreferrer'
+                aria-label='Visit my website!'
+                title='Visit my website!'
+              >
+                https://chaseterry.com
+              </a>
+            </div>
           </div>
         </div>
+        <Modal
+          search={search}
+          isGeolocationEnabled={isGeolocationEnabled}
+          disableGeolocation={disableGeolocation}
+          promptGeolocation={promptGeolocation}
+          setLocation={setLocation}
+          location={location}
+          setRadius={setRadius}
+          radius={radius}
+          setPrice={setPrice}
+          price={price}
+          setRating={setRating}
+          rating={rating}
+          setTerm={setTerm}
+          term={term}
+        />
       </div>
-      <Modal
-        search={search}
-        isGeolocationEnabled={isGeolocationEnabled}
-        disableGeolocation={disableGeolocation}
-        promptGeolocation={promptGeolocation}
-        setLocation={setLocation}
-        location={location}
-        setRadius={setRadius}
-        radius={radius}
-        setPrice={setPrice}
-        price={price}
-        setRating={setRating}
-        rating={rating}
-        setTerm={setTerm}
-        term={term}
-      />
     </div>
   )
 }
