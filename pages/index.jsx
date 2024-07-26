@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import Head from 'next/head'
 import axios from 'axios'
 import 'animate.css'
 
@@ -213,15 +212,6 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Magic Date Ball</title>
-        <meta
-          property='og:title'
-          content='Ask the Magic Date Ball where to eat out tonight! By Chase Terry'
-          key='title'
-        />
-      </Head>
-
       <div
         id='app'
         className={
