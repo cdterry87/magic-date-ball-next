@@ -259,9 +259,9 @@ export default function Home() {
             <EmptyResult startOver={startOver} />
           )}
           <div className='flex flex-col gap-1 text-center'>
-            <div className='flex items-center gap-2'>
+            <div className='flex flex-col sm:flex-row items-center gap-2'>
               <span>&copy; 2023. Created by Chase Terry.</span>
-              <span>|</span>
+              <span className='hidden sm:inline-block'>|</span>
               <a
                 href='https://chaseterry.com'
                 className='font-bold underline'
